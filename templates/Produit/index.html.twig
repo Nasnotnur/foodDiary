@@ -1,0 +1,40 @@
+{# /src/templates/produit/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Liste des produits -
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <h3>Etat des produits</h3>            
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-sm-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Code Produit</th>
+                        <th>Libellé</th>
+                        <th>Prix</th>
+                        <th>Qté</th>
+                        <th>TVA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for produit in listProduits %}
+                        <tr>
+                        <td>{{ produit.id }}</td>
+                        <td>{{ produit.code }}</td>
+                        <td>{{ produit.nom }}</td>
+                        <td>{{ produit.description }}</td>
+                        <td>{{ produit.tva}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>            
+        </div>
+    </div>
+{% endblock %}
